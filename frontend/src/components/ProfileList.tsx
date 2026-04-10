@@ -10,7 +10,12 @@ interface ProfileListProps {
   onNew: () => void;
 }
 
-export function ProfileList({ profiles, selectedId, onSelect, onNew }: ProfileListProps) {
+export function ProfileList({
+  profiles,
+  selectedId,
+  onSelect,
+  onNew,
+}: ProfileListProps) {
   const [search, setSearch] = useState("");
 
   const filtered = profiles.filter((p) =>
@@ -25,7 +30,7 @@ export function ProfileList({ profiles, selectedId, onSelect, onNew }: ProfileLi
       <div className="p-4 border-b border-border">
         <div className="flex items-center gap-2 mb-3">
           <Monitor className="h-4 w-4 text-accent" />
-          <h1 className="text-sm font-semibold tracking-tight">CloakBrowser Manager</h1>
+          <h1 className="text-sm font-semibold tracking-tight">CloakBrowser</h1>
         </div>
         {runningCount > 0 && (
           <div className="text-xs text-gray-500 mb-3">
@@ -64,10 +69,14 @@ export function ProfileList({ profiles, selectedId, onSelect, onNew }: ProfileLi
           >
             <div className="flex items-center gap-2">
               <StatusIndicator status={profile.status} />
-              <span className="text-sm font-medium truncate">{profile.name}</span>
+              <span className="text-sm font-medium truncate">
+                {profile.name}
+              </span>
             </div>
             <div className="flex items-center gap-2 mt-1 ml-4">
-              <span className="text-xs text-gray-500 capitalize">{profile.platform}</span>
+              <span className="text-xs text-gray-500 capitalize">
+                {profile.platform}
+              </span>
               {profile.proxy && (
                 <>
                   <span className="text-xs text-gray-600">·</span>
@@ -81,7 +90,11 @@ export function ProfileList({ profiles, selectedId, onSelect, onNew }: ProfileLi
                   <span
                     key={t.tag}
                     className="text-[10px] px-1.5 py-0.5 rounded-full bg-surface-4 text-gray-400"
-                    style={t.color ? { backgroundColor: `${t.color}20`, color: t.color } : undefined}
+                    style={
+                      t.color
+                        ? { backgroundColor: `${t.color}20`, color: t.color }
+                        : undefined
+                    }
                   >
                     {t.tag}
                   </span>
@@ -94,7 +107,10 @@ export function ProfileList({ profiles, selectedId, onSelect, onNew }: ProfileLi
 
       {/* New profile button */}
       <div className="p-3 border-t border-border">
-        <button onClick={onNew} className="btn-secondary w-full flex items-center justify-center gap-1.5">
+        <button
+          onClick={onNew}
+          className="btn-secondary w-full flex items-center justify-center gap-1.5"
+        >
           <Plus className="h-3.5 w-3.5" />
           <span>New Profile</span>
         </button>
