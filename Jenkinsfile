@@ -1,7 +1,7 @@
 node {
-    // def isProduction = env.GIT_BRANCH && (env.GIT_BRANCH == 'production' || env.GIT_BRANCH == 'origin/production')
+    def isProduction = env.GIT_BRANCH && (env.GIT_BRANCH == 'production' || env.GIT_BRANCH == 'origin/production')
 
-    // if (isProduction) {
+    if (isProduction) {
         def app
 
         stage('Clone repository') {
@@ -28,5 +28,5 @@ node {
             echo "triggering updatemanifestjob"
             build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
-    // }
+    }
 }
