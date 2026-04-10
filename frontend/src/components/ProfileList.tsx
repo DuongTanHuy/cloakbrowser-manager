@@ -30,7 +30,9 @@ export function ProfileList({
       <div className="p-4 border-b border-border">
         <div className="flex items-center gap-2 mb-3">
           <Monitor className="h-4 w-4 text-accent" />
-          <h1 className="text-sm font-semibold tracking-tight">CloakBrowser</h1>
+          <h1 className="text-sm font-semibold tracking-tight">
+            CloakBrowser UI
+          </h1>
         </div>
         {runningCount > 0 && (
           <div className="text-xs text-gray-500 mb-3">
